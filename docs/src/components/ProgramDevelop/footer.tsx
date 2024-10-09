@@ -1,5 +1,5 @@
 import React from "react";
-import Image1 from '/Users/brown/OneDrive/Desktop/Class_Projects/ReactRepository/develop/src/assets/react.svg'
+import Image1 from '../../assets/react.svg'
 
 const footer: React.FC = () => {
     return (
