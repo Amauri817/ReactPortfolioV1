@@ -1,0 +1,90 @@
+.intro {
+  background-color: rgb(24, 24, 24);
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  color: white;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 50px; /* Space between columns */
+  height: 100%;
+  width: 100%;
+}
+
+.left {
+  padding-top: 40%;
+  background: none;
+  transition: background-image 0.5s ease; /* Smooth transition when background changes */
+  height: 100%;
+  width: 100%;
+}
+
+.left:hover{
+  background-image: url('https://media1.tenor.com/m/-SV9TjUGabMAAAAC/hacker-python.gif');
+  background-size: cover;
+  background-position: center;
+}
+
+.right {
+  padding-top: 40%;
+  background: none;
+  transition: background-image 0.5s ease; /* Smooth transition when background changes */
+  height: 100%;
+  width: 100%;
+}
+
+.right:hover{
+  background-image: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3JpMmNnOTlqb2pwMHBja25nZWQyMjd1anI1enJqZG5jcXBmcjFreCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/atQF1zaSGq8s8/giphy.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-family: 'Stencil Std', 'fantasy';
+}
+
+@media screen and (max-width: 100px){
+  .container .popup-img img{
+    width: 95%;
+  }
+}
+
+.nez {
+  background-color: rgb(39, 39, 39);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  font-size: 20px;
+  padding-top: 15px;
+  padding-left: 8%;
+  padding-right: 8%;
+}
+
+.nez h1 {
+  text-align: center;
+  padding-right: 36%;
+}
+
+.Logo {
+  color: white;
+  font-size: 25px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+span {
+  color: #40d7bc;
+  font-size: 20px;
+}
