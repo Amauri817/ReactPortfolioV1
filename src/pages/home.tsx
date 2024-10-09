@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../components/DesignDevelop/home.css'
 
 const Home: React.FC = () => {
@@ -19,10 +20,10 @@ const Home: React.FC = () => {
   
           <div className="content">
             <article className="left">
-            <h1><a href="/program">Programming</a></h1>
+            <h1><Link to="/program">Programming</Link></h1>
             </article>
             <article className="right">
-                <h1><a href="/design">Technical Designer</a></h1>
+                <h1><Link to="/design">Technical Designer</Link></h1>
             </article>
           </div>
         </body>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from 'react';
 import './nav.css'
 
@@ -8,7 +9,7 @@ const Navs: React.FC = () => {
   return (
       <div className='header'>
         <nav className='nas'>
-        <a href="/program"><h2 className='Logo'> Amauri Brown <br/> <span>Programmer</span> </h2></a>
+        <Link to="/program"><h2 className='Logo'> Amauri Brown <br/> <span>Programmer</span> </h2></Link>
           <ul>
             <a href="#about"><li>About</li></a>
             <a href="#skills"><li>Skills</li></a>
@@ -17,7 +18,7 @@ const Navs: React.FC = () => {
             <a href="https://drive.google.com/file/d/1uohXkgqjCiM6POS0Nd8vquTuMrgUBHUC/view?usp=sharing" target='blank'><li>Resume</li></a>
             <a href="#contact"><li>Contact</li></a>
           </ul>
-          <a href="/"><span>Back (☞ﾟヮﾟ)☞</span></a>
+          <Link to="/"><span>Back (☞ﾟヮﾟ)☞</span></Link>
         </nav>
       </div>
   )

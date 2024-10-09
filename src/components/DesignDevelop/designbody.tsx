@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Image1 from '../../assets/Sonic.png'
 import Image2 from '../../assets/portpic2.png'
 import Image3 from '../../assets/Inv.png'
@@ -16,7 +17,7 @@ const Content: React.FC = () => {
                 </p>
             </section>
             <h4 style={{textAlign: 'center', borderBottom: '1px solid white', paddingBottom: '5px', paddingTop: '5px'}}>Personal Projects</h4>
-            <a href="/sonic"><h5>Sonic Inspired Game</h5></a>
+            <Link to="/sonic"><h5>Sonic Inspired Game</h5></Link>
             <div className="row" style={{borderBottom:'1px solid white'}}>
                 <div className="col-md">
                 <p>A fun game I made to better understand the sonic mechanics within its video games. The player runs around grinding on rails.
@@ -34,7 +35,7 @@ const Content: React.FC = () => {
                 </div>
             </div>
 
-            <a href="/portal-gun"><h5>Portal Gun Game</h5></a>
+            <Link to="/portal-gun"><h5>Portal Gun Game</h5></Link>
             <div className="row" style={{borderBottom:'1px solid white'}}>
                 <div className="col-md">
                 <p>A game I made to help understand the teleporting system in the game "Portal". It is to portray how a successful portal system works.
@@ -53,7 +54,7 @@ const Content: React.FC = () => {
                 </div>
             </div>
 
-            <a href="/inventory"><h5>Shop and Inventory Demo</h5></a>
+            <Link to="/inventory"><h5>Shop and Inventory Demo</h5></Link>
             <div className="row">
                 <div className="col-md">
                 <p>A demostration of a properly working inventory and shop system. Created to gain an understanding of the backends of a successful inventory, selling, and buying system.
