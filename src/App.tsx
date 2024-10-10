@@ -1,34 +1,35 @@
-import React from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/home';
-import About from './pages/about';
-import Contact from './pages/contact';
-import Design from './pages/design';
-import Inventory from './pages/inventory';
-import Portal from './pages/portal-gun';
-import Project from './pages/project';
-import Sonic from './pages/sonic';
-import Program from './pages/program';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
-const App: React.FC = () => {
+function App() {
+  const [count, setCount] = useState(0)
 
   return (
-    <Router>
-      <Routes>
-        {/* The route for the home page */}
-        <Route path="/" element={<Home />} />
-        {/* Other routes */}
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/design" element={<Design />} />
-        <Route path="/inventory" element={<Inventory />} />
-        <Route path="/portal-gun" element={<Portal />} />
-        <Route path="/project" element={<Project />} />
-        <Route path="/sonic" element={<Sonic />} />
-        <Route path="/program" element={<Program />} />
-      </Routes>
-    </Router>
-  );
-};
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
+}
 
-export default App;
+export default App
