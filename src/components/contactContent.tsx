@@ -18,25 +18,21 @@ const ContactBod: React.FC = () => {
     
       // Setting the error to empty 
       const [errors, setErrors] = useState({
+        username: "",
         email: "",
+        message: "",
       });
     
       // Returns true if the patters match and false otherwise (ex: words@words.words is good, words.words@words is bad)
       const validateEmail = (email: string): boolean => {
         // Basic email validation regex
-        const emailText = /^[words]+@[words]+\.[words]+$/;
+        const emailText = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailText.test(email);
       };
     
         // It updates the formData state based on the input field's name and value.
-      const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-    
-        // Clear previous email error when typing
-        if (name === "email") {
-          setErrors({ ...errors, email: "" });
-        }
-    
+      const handleChange = (T: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = T.target;
         // This updates the formData state with the new value for the corresponding field and the (...) makes sure the other fields aren't affected.
         setFormData({
           ...formData,
@@ -44,18 +40,45 @@ const ContactBod: React.FC = () => {
         });
       };
     
+      const handleCursor = (T: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const {name, value} = T.target
+            // Validate username field
+        if (name === "username" && value.trim() === "") {
+                setErrors((error) => ({ ...error, username: "Username is required." }));
+            } else if (name === "username") {
+                setErrors((error) => ({ ...error, username: "" }));
+        }
+    
+      // Validate email field
+        if (name === "email" ) {
+            if (value.trim() === "") {
+            setErrors((error) => ({ ...error, email: "Email is required." }));
+            } else if (!validateEmail(value)) {
+            setErrors((error) => ({ ...error, email: "Please enter a valid email address." }));
+            } else {
+            setErrors((error) => ({ ...error, email: "" }));
+            }
+        }
+  
+      // Validate message field
+        if (name === "message" && value.trim() === "") {
+            setErrors((error) => ({ ...error, message: "Message is required." }));
+            } else if (name === "message") {
+                setErrors((error) => ({ ...error, message: "" }));
+            }
+        }
+
       // A function to handle form submission when the user clicks the "Submit" button.
-      const handleSubmit = (e: React.FormEvent) => {
+      const handleSubmit = () => {
 
         // Validate the email field
          // If the email is invalid, an error message is set in the "errors" state.
         if (!validateEmail(formData.email)) {
-          setErrors({ ...errors, email: "Please enter a valid email address." });
+          setErrors({ ...errors, email: "Invalid" });
           return;
         }
     // Handle form submission logic 
         console.log("Form Submitted:", formData);
-
       };
     
       return (
@@ -69,8 +92,10 @@ const ContactBod: React.FC = () => {
                     name="username"
                     value={formData.username}
                     onChange={handleChange}
+                    onBlur={handleCursor}
                     required
                     />
+                    {errors.username && <p style={{ color: "red" }}>{errors.username}</p>}
                 </div>
             
                 <div>
@@ -81,8 +106,10 @@ const ContactBod: React.FC = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
+                    onBlur={handleCursor}
                     required
                     />
+                    {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
                 </div>
             
                 <div>
@@ -92,8 +119,10 @@ const ContactBod: React.FC = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
+                    onBlur={handleCursor}
                     required
                     />
+                    {errors.message && <p style={{ color: "red" }}>{errors.message}</p>}
                 </div>
             
                 <button type="submit">Submit</button>
